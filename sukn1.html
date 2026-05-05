@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sukun Community Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .active-tab { border-bottom: 3px solid #ADD8E6; color: #1e293b; font-weight: bold; }
+        .chat-bubble { border-radius: 15px 15px 15px 0; background: #e2e8f0; padding: 8px 12px; margin-bottom: 8px; width: fit-content; max-width: 80%; }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen font-sans">
+
+    <div class="w-[450px] bg-white shadow-2xl rounded-xl overflow-hidden border border-slate-200">
+        <!-- Header -->
+        <div class="bg-slate-800 p-4 text-white">
+            <h1 class="text-xl font-bold">Sukun Community</h1>
+            <p class="text-xs opacity-75">Secure & Anonymous Support</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="flex border-bottom bg-slate-50 text-slate-500 text-sm">
+            <button onclick="showTab('chat')" id="tab-chat" class="flex-1 py-3 active-tab">Chat</button>
+            <button onclick="showTab('connect')" id="tab-connect" class="flex-1 py-3">Connect</button>
+            <button onclick="showTab('tea')" id="tab-tea" class="flex-1 py-3">Tea & Talk</button>
+        </div>
+
+        <!-- Tab Content: Chat -->
+        <div id="content-chat" class="p-4 h-[400px] flex flex-col">
+            <div id="chat-messages" class="flex-grow overflow-y-auto mb-4">
+                <div class="chat-bubble text-sm"><span class="font-bold text-blue-600">User-821:</span> Feeling overwhelmed by finals...</div>
+                <div class="chat-bubble text-sm"><span class="font-bold text-green-600">User-441:</span> You got this! Try the breathing tool in the menu.</div>
+            </div>
+            <div class="flex gap-2">
+                <input id="chat-input" type="text" placeholder="Say something kind..." class="flex-grow border rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200">
+                <button onclick="sendMessage()" class="bg-blue-400 text-white px-4 rounded-lg font-bold">Send</button>
+            </div>
+        </div>
+
+        <!-- Tab Content: Connect -->
+        <div id="content-connect" class="hidden p-6 h-[400px] text-center">
+            <div class="mb-6"><i class="fa-solid fa-people-arrows text-4xl text-blue-300"></i></div>
+            <h3 class="font-bold mb-2">Find a Peer Mentor</h3>
+            <p class="text-sm text-slate-500 mb-6">Connect one-on-one with trained student listeners who understand your pressure.</p>
+            <button class="w-full py-3 bg-slate-800 text-white rounded-lg mb-3">Request Anonymous Match</button>
+            <button class="w-full py-3 border border-slate-300 rounded-lg">Volunteer as Listener</button>
+        </div>
+
+        <!-- Tab Content: Tea & Talk -->
+        <div id="content-tea" class="hidden p-6 h-[400px]">
+            <h3 class="font-bold mb-4">Upcoming Meetups</h3>
+            <div class="space-y-3">
+                <div class="p-3 border rounded-lg bg-yellow-50 border-yellow-100">
+                    <p class="font-bold text-sm">Exam Stress Coffee Hour</p>
+                    <p class="text-xs text-slate-500">Friday, 3:00 PM @ Library Cafe</p>
+                    <button class="mt-2 text-xs text-blue-600 font-bold">RSVP Anonymously</button>
+                </div>
+                <div class="p-3 border rounded-lg bg-blue-50 border-blue-100">
+                    <p class="font-bold text-sm">Career & Coding Anxiety Talk</p>
+                    <p class="text-xs text-slate-500">Monday, 11:30 AM @ Room 4B</p>
+                    <button class="mt-2 text-xs text-blue-600 font-bold">RSVP Anonymously</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tab) {
+            ['chat', 'connect', 'tea'].forEach(t => {
+                document.getElementById('content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('active-tab');
+            });
+            document.getElementById('content-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.add('active-tab');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            if(input.value.trim() !== "") {
+                const chatMessages = document.getElementById('chat-messages');
+                const div = document.createElement('div');
+                div.className = "chat-bubble text-sm";
+                div.innerHTML = `<span class="font-bold text-purple-600">Me:</span> ${input.value}`;
+                chatMessages.appendChild(div);
+                input.value = "";
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
