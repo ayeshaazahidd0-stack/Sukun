@@ -45,7 +45,7 @@ Java Version: Import SukunApp.java into Eclipse or any Java IDE and run as a Jav
 
 Developed as part of a Civics & Community Engagement project by:
 
-Ayesha Zahid
+Ayesha Zahid ( Main Scripter )
 Noor ul Ain Ibrar 
 Kubra Batool
 Urva
