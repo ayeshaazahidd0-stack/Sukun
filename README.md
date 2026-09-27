@@ -46,21 +46,6 @@ Java Version: Import SukunApp.java into Eclipse or any Java IDE and run as a Jav
 Developed as part of a Civics & Community Engagement project by:
 
 Ayesha Zahid ( Main Scripter )
-Noor ul Ain Ibrar 
-Kubra Batool
-Urva
-Alishba Noor 
-Warda Shafiq
-Ayesha Zahid
-Aqsa Zulfiqar
-Amina Naseer
-Syeda Sukaina Raza kazmi 
-Zimal Yousuf
-Arooba Noor
-Kabsha Qasim
-Khadija Rafique
-Ayesha Bashir
-Ayesha Kiran
 
 
 “What is mentioned can be managed. Sukun gives the silence a safe place to speak.”
